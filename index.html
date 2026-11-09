@@ -1,0 +1,1012 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Duru Çakır</title>
+  <meta name="description" content="Duru Çakır'ın kişisel web alanı">
+  <meta name="theme-color" content="#ffdad6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#93000a" media="(prefers-color-scheme: dark)">
+  <meta name="color-scheme" content="light dark">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Caveat:wght@600&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0..1,0&display=block">
+
+  <!-- Material Web: import map + ES modülleri -->
+  <script type="importmap">
+  {
+    "imports": {
+      "@material/web/": "https://esm.run/@material/web/"
+    }
+  }
+  </script>
+  <script type="module">
+    import '@material/web/all.js';
+  </script>
+  <script type="module">
+    try {
+      const { styles } = await import('@material/web/typography/md-typescale-styles.js');
+      document.adoptedStyleSheets = [...document.adoptedStyleSheets, styles.styleSheet];
+    } catch (e) { console.warn('typescale yüklenemedi', e); }
+  </script>
+  <script>document.documentElement.classList.add('js');</script>
+
+  <style>
+    /* ================= MD3 Kırmızı Ton Teması ================= */
+    :root {
+      --md-sys-color-primary: #ba1a1a;
+      --md-sys-color-on-primary: #ffffff;
+      --md-sys-color-primary-container: #ffdad6;
+      --md-sys-color-on-primary-container: #410002;
+      --md-sys-color-secondary: #775652;
+      --md-sys-color-on-secondary: #ffffff;
+      --md-sys-color-secondary-container: #ffdad5;
+      --md-sys-color-on-secondary-container: #2c1512;
+      --md-sys-color-tertiary: #715b2e;
+      --md-sys-color-on-tertiary: #ffffff;
+      --md-sys-color-tertiary-container: #fedfa6;
+      --md-sys-color-on-tertiary-container: #261a00;
+      --md-sys-color-background: #fff8f7;
+      --md-sys-color-on-background: #231918;
+      --md-sys-color-surface: #fff8f7;
+      --md-sys-color-on-surface: #231918;
+      --md-sys-color-surface-variant: #f5ddda;
+      --md-sys-color-on-surface-variant: #534341;
+      --md-sys-color-outline: #857371;
+      --md-sys-color-outline-variant: #d8c2bf;
+      --md-sys-color-surface-tint: #ba1a1a;
+      --md-sys-color-surface-container-lowest: #ffffff;
+      --md-sys-color-surface-container-low: #fff0ee;
+      --md-sys-color-surface-container: #fbeae7;
+      --md-sys-color-surface-container-high: #f5e4e2;
+      --md-sys-color-surface-container-highest: #efdedc;
+      --md-sys-color-inverse-surface: #392e2d;
+      --md-sys-color-inverse-on-surface: #ffedeb;
+      --md-sys-color-inverse-primary: #ffb4ab;
+      --md-sys-color-shadow: #000000;
+
+      --md-sys-shape-corner-large: 16px;
+      --md-sys-shape-corner-extra-large: 28px;
+      --md-sys-motion-easing-emphasized-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1);
+      --md-sys-motion-easing-emphasized: cubic-bezier(0.2, 0, 0, 1);
+
+      --nav-h: 80px;
+      --rail-w: 0px;
+      color-scheme: light dark;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --md-sys-color-primary: #ffb4ab;
+        --md-sys-color-on-primary: #690005;
+        --md-sys-color-primary-container: #93000a;
+        --md-sys-color-on-primary-container: #ffdad6;
+        --md-sys-color-secondary: #e7bdb8;
+        --md-sys-color-on-secondary: #442926;
+        --md-sys-color-secondary-container: #5d3f3b;
+        --md-sys-color-on-secondary-container: #ffdad5;
+        --md-sys-color-tertiary: #e0c38c;
+        --md-sys-color-on-tertiary: #3f2e04;
+        --md-sys-color-tertiary-container: #574419;
+        --md-sys-color-on-tertiary-container: #fedfa6;
+        --md-sys-color-background: #1a1111;
+        --md-sys-color-on-background: #f1dfdc;
+        --md-sys-color-surface: #1a1111;
+        --md-sys-color-on-surface: #f1dfdc;
+        --md-sys-color-surface-variant: #534341;
+        --md-sys-color-on-surface-variant: #d8c2bf;
+        --md-sys-color-outline: #a08c8a;
+        --md-sys-color-outline-variant: #534341;
+        --md-sys-color-surface-tint: #ffb4ab;
+        --md-sys-color-surface-container-lowest: #140c0c;
+        --md-sys-color-surface-container-low: #231918;
+        --md-sys-color-surface-container: #271d1c;
+        --md-sys-color-surface-container-high: #322826;
+        --md-sys-color-surface-container-highest: #3d3231;
+        --md-sys-color-inverse-surface: #f1dfdc;
+        --md-sys-color-inverse-on-surface: #392e2d;
+        --md-sys-color-inverse-primary: #ba1a1a;
+      }
+    }
+
+    /* Yazı tipi ölçeği yedeği */
+    :where(.md-typescale-display-small){font:400 36px/44px Roboto,system-ui,sans-serif}
+    :where(.md-typescale-display-medium){font:400 45px/52px Roboto,system-ui,sans-serif}
+    :where(.md-typescale-headline-large){font:400 32px/40px Roboto,system-ui,sans-serif}
+    :where(.md-typescale-headline-medium){font:400 28px/36px Roboto,system-ui,sans-serif}
+    :where(.md-typescale-headline-small){font:400 24px/32px Roboto,system-ui,sans-serif}
+    :where(.md-typescale-title-large){font:400 22px/28px Roboto,system-ui,sans-serif}
+    :where(.md-typescale-title-medium){font:500 16px/24px Roboto,system-ui,sans-serif;letter-spacing:.15px}
+    :where(.md-typescale-body-large){font:400 16px/24px Roboto,system-ui,sans-serif;letter-spacing:.5px}
+    :where(.md-typescale-body-medium){font:400 14px/20px Roboto,system-ui,sans-serif;letter-spacing:.25px}
+    :where(.md-typescale-label-large){font:500 14px/20px Roboto,system-ui,sans-serif;letter-spacing:.1px}
+    :where(.md-typescale-label-medium){font:500 12px/16px Roboto,system-ui,sans-serif;letter-spacing:.5px}
+
+    /* Temel Düzen - Doğal ve yumuşak kaydırma */
+    html, body {
+      margin: 0;
+      height: 100%;
+      background: var(--md-sys-color-background);
+      color: var(--md-sys-color-on-surface);
+      font-family: Roboto, system-ui, sans-serif;
+      overflow: hidden;
+      overscroll-behavior: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    html, body, * {
+      -webkit-user-select: none;
+      user-select: none;
+      -webkit-touch-callout: none;
+    }
+    img { -webkit-user-drag: none; pointer-events: none; }
+    h1, h2, h3, p, figure, ol { margin: 0; padding: 0; }
+
+    body { opacity: 0; transition: opacity 300ms ease; }
+    body.ready { opacity: 1; }
+
+    #scroller {
+      height: 100vh;
+      height: 100dvh;
+      overflow-x: hidden;
+      overflow-y: auto;
+      /* Katı (mandatory) yerine yumuşak (proximity) yapı: altta kalan içerik rahatça incelenebilir */
+      scroll-snap-type: y proximity;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      overscroll-behavior: contain;
+    }
+    #scroller::-webkit-scrollbar { display: none; }
+
+    .page {
+      box-sizing: border-box;
+      padding-left: var(--rail-w);
+      min-height: 100vh;
+      min-height: 100dvh;
+      scroll-snap-align: start;
+      scroll-snap-stop: normal; /* Zorunlu durdurma kalktı, kayma engellendi */
+      overflow-x: clip;
+      display: flex;
+      justify-content: center;
+      position: relative;
+    }
+    .wrap {
+      box-sizing: border-box;
+      width: 100%;
+      max-width: 540px;
+      --pad: 20px;
+      /* Alttaki buton çubuğunun altında içerik kalmaması için ekstra güvenli boşluk */
+      padding: calc(28px + env(safe-area-inset-top)) var(--pad) calc(var(--nav-h) + 42px + env(safe-area-inset-bottom));
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    .ellipsis { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+    .card {
+      position: relative;
+      box-sizing: border-box;
+      border-radius: var(--md-sys-shape-corner-extra-large);
+      padding: 18px 20px;
+      --md-elevation-level: 0;
+    }
+    .card-head { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+    .card-head .grow { flex: 1; min-width: 0; }
+
+    /* ================= 1 · Merhaba (Hero) ================= */
+    #s0 {
+      position: relative;
+      background: var(--md-sys-color-primary-container);
+      color: var(--md-sys-color-on-primary-container);
+      --ext: var(--md-sys-color-primary);
+    }
+    @media (prefers-color-scheme: dark) {
+      #s0 { --ext: var(--md-sys-color-inverse-primary); }
+      .hero-bg img { filter: brightness(.78) saturate(1.05); }
+    }
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: var(--rail-w);
+      right: 0;
+      height: 72%;
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to bottom, #000 45%, transparent 96%);
+      mask-image: linear-gradient(to bottom, #000 45%, transparent 96%);
+    }
+    .hero-bg img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 18%;
+      transform: scale(1.06) translate(calc(var(--ry, 0) * -1px), calc(var(--rx, 0) * 1px));
+      transition: transform 120ms linear;
+    }
+    #s0 .wrap { position: relative; justify-content: flex-end; gap: 14px; }
+
+    .title-3d { perspective: 700px; }
+    .tilt-text {
+      margin: 0;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      transform-origin: 25% 60%;
+      transform: rotateX(calc(var(--rx, 0) * 1deg)) rotateY(calc(var(--ry, 0) * 1deg));
+      animation: sway 6s ease-in-out infinite alternate;
+      text-shadow:
+        1px 1px 0 var(--ext), 2px 2px 0 var(--ext), 3px 3px 0 var(--ext), 4px 4px 0 var(--ext),
+        5px 5px 0 var(--ext), 6px 6px 0 var(--ext),
+        8px 16px 20px color-mix(in srgb, var(--md-sys-color-shadow) 25%, transparent);
+    }
+    #s0.live .tilt-text { animation: none; }
+    @keyframes sway {
+      from { transform: rotateX(3deg) rotateY(-8deg); }
+      to   { transform: rotateX(-3deg) rotateY(8deg); }
+    }
+
+    #s0 p { max-width: 38ch; }
+    #s0 md-chip-set { --md-chip-set-gap: 8px; }
+    #s0 md-assist-chip {
+      --md-assist-chip-label-text-color: var(--md-sys-color-on-primary-container);
+      --md-assist-chip-icon-color: var(--md-sys-color-on-primary-container);
+      --md-assist-chip-outline-color: color-mix(in srgb, var(--md-sys-color-on-primary-container) 35%, transparent);
+    }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+
+    .js .wrap > .rise { opacity: 0; transform: translateY(20px); }
+    .ready #s0 .rise {
+      opacity: 1;
+      transform: none;
+      transition: opacity 600ms var(--md-sys-motion-easing-emphasized-decelerate),
+                  transform 600ms var(--md-sys-motion-easing-emphasized-decelerate);
+      transition-delay: calc(var(--i, 0) * 80ms + 120ms);
+    }
+
+    /* ================= 2 · Ben ================= */
+    #s1 { background: var(--md-sys-color-surface); }
+    .list-card { background: var(--md-sys-color-surface-container-low); padding: 10px 14px; }
+    md-list { --md-list-container-color: transparent; padding: 0; }
+    md-list-item {
+      --md-list-item-leading-icon-color: var(--md-sys-color-primary);
+      --md-list-item-label-text-color: var(--md-sys-color-on-surface);
+    }
+    
+    /* MD3 Düşünce & Alıntı Yüzeyi */
+    .quote-surface {
+      background: var(--md-sys-color-secondary-container);
+      color: var(--md-sys-color-on-secondary-container);
+      border-left: 4px solid var(--md-sys-color-primary);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .quote-surface .quote-icon {
+      font-size: 28px;
+      --md-icon-size: 28px;
+      color: var(--md-sys-color-primary);
+      opacity: .8;
+    }
+    .quote-surface blockquote {
+      margin: 0;
+      font-style: italic;
+      line-height: 1.45;
+    }
+
+    .story-card {
+      background: var(--md-sys-color-surface-container);
+      color: var(--md-sys-color-on-surface);
+    }
+    .story-card .ic { color: var(--md-sys-color-primary); }
+
+    /* ================= 3 · Yolculuk (İzler & Hayaller) ================= */
+    #s2 { background: var(--md-sys-color-surface-container-low); color: var(--md-sys-color-on-surface); }
+    .timeline { list-style: none; }
+    .timeline li {
+      position: relative;
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      column-gap: 14px;
+      padding-bottom: 18px;
+    }
+    .timeline li:last-child { padding-bottom: 0; }
+    .timeline li::before {
+      content: "";
+      position: absolute;
+      left: 21px;
+      top: 48px;
+      bottom: 4px;
+      width: 2px;
+      border-radius: 1px;
+      background: color-mix(in srgb, var(--md-sys-color-outline-variant) 80%, transparent);
+    }
+    .timeline li:last-child::before { display: none; }
+    .dot {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: var(--md-sys-color-surface-container-highest);
+      color: var(--md-sys-color-primary);
+    }
+    .dot.highlight { background: var(--md-sys-color-primary); color: var(--md-sys-color-on-primary); }
+    .dot.soft { background: var(--md-sys-color-primary-container); color: var(--md-sys-color-on-primary-container); }
+    .timeline .when { opacity: .75; font-weight: 500; }
+    .timeline p { margin-top: 4px; opacity: .88; }
+
+    .brother-box {
+      margin-top: 8px;
+      padding: 10px 14px;
+      border-radius: 16px;
+      background: var(--md-sys-color-primary-container);
+      color: var(--md-sys-color-on-primary-container);
+      font-size: 13.5px;
+      line-height: 1.4;
+    }
+
+    .js .stagger > * { opacity: 0; transform: translateY(14px); }
+    .stagger.in > * {
+      opacity: 1;
+      transform: none;
+      transition: opacity 450ms var(--md-sys-motion-easing-emphasized-decelerate),
+                  transform 450ms var(--md-sys-motion-easing-emphasized-decelerate);
+      transition-delay: calc(var(--i, 0) * 80ms);
+    }
+
+    /* ================= 4 · Anılar (Foto Galeri) ================= */
+    #s3 { background: var(--md-sys-color-primary-container); color: var(--md-sys-color-on-primary-container); }
+    .gallery {
+      display: flex;
+      gap: 14px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      overscroll-behavior-x: contain;
+      scrollbar-width: none;
+      margin: 0 calc(var(--pad) * -1);
+      padding: 6px var(--pad) 14px;
+      scroll-padding: 0 var(--pad);
+    }
+    .gallery::-webkit-scrollbar { display: none; }
+    .shot {
+      position: relative;
+      flex: none;
+      width: min(76vw, 290px);
+      scroll-snap-align: center;
+      border-radius: 28px;
+      overflow: hidden;
+      background: var(--md-sys-color-surface);
+      color: var(--md-sys-color-on-surface);
+      box-shadow: 0 4px 16px color-mix(in srgb, var(--md-sys-color-shadow) 12%, transparent);
+    }
+    .shot img {
+      display: block;
+      width: 100%;
+      height: min(40dvh, 340px);
+      object-fit: cover;
+      background: var(--md-sys-color-surface-container-high);
+    }
+    .shot figcaption { padding: 14px 16px 16px; }
+    .swipe-hint { display: flex; align-items: center; gap: 8px; opacity: .85; }
+
+    /* ================= 5 · Dünyam / Müzik ================= */
+    #s4 { background: var(--md-sys-color-surface); }
+
+    .favs-card {
+      background: var(--md-sys-color-surface-container);
+      color: var(--md-sys-color-on-surface);
+    }
+    .favs-card .card-head md-icon { color: var(--md-sys-color-primary); }
+    .fav-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .fav-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 12px;
+      border-radius: 12px;
+      background: var(--md-sys-color-surface-container-highest);
+      font-size: 13px;
+      font-weight: 500;
+    }
+    .fav-tag md-icon { font-size: 16px; --md-icon-size: 16px; color: var(--md-sys-color-primary); }
+    .dot-color { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+    .dot-red { background: #ba1a1a; }
+    .dot-green { background: #2e7d32; }
+
+    .music { background: var(--md-sys-color-secondary-container); color: var(--md-sys-color-on-secondary-container); }
+    .music .card-head > md-icon { color: var(--md-sys-color-primary); }
+    .track { display: grid; grid-template-columns: 72px 1fr auto; gap: 14px; align-items: center; }
+    .art {
+      width: 72px;
+      height: 72px;
+      border-radius: 20px;
+      overflow: hidden;
+      background: var(--md-sys-color-surface);
+      color: var(--md-sys-color-primary);
+      display: grid;
+      place-items: center;
+    }
+    .art img { width: 100%; height: 100%; object-fit: cover; }
+    .track-text { min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+    .status { display: flex; align-items: center; gap: 8px; color: var(--md-sys-color-primary); margin-top: 4px; }
+    .eq { display: inline-flex; align-items: flex-end; gap: 2px; height: 14px; }
+    .eq i { width: 3px; height: 100%; background: var(--md-sys-color-primary); border-radius: 2px; transform-origin: bottom; animation: eq .9s infinite ease-in-out; }
+    .eq i:nth-child(2) { animation-delay: -.3s; }
+    .eq i:nth-child(3) { animation-delay: -.6s; }
+    @keyframes eq { 0%, 100% { transform: scaleY(.25); } 50% { transform: scaleY(1); } }
+    .play { position: relative; width: 56px; height: 56px; display: grid; place-items: center; }
+    .play md-circular-progress {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      --md-circular-progress-size: 56px;
+      --md-circular-progress-active-indicator-width: 8;
+      --md-circular-progress-active-indicator-color: var(--md-sys-color-primary);
+      --md-circular-progress-track-color: color-mix(in srgb, var(--md-sys-color-primary) 18%, transparent);
+    }
+    .play md-filled-icon-button {
+      --md-filled-icon-button-container-width: 44px;
+      --md-filled-icon-button-container-height: 44px;
+      --md-filled-icon-button-icon-size: 26px;
+    }
+    .music md-linear-progress { margin-top: 14px; width: 100%; }
+    
+    /* En alttaki telif: Sadece ismiyle sade tasarım */
+    .credit { text-align: center; opacity: .7; margin-top: 12px; }
+
+    /* ================= MD3 Alt Gezinme Çubuğu ================= */
+    .nav {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 10;
+      box-sizing: border-box;
+      height: calc(var(--nav-h) + env(safe-area-inset-bottom));
+      padding-bottom: env(safe-area-inset-bottom);
+      display: flex;
+      justify-content: center;
+      background: var(--md-sys-color-surface-container);
+      overflow: hidden;
+      touch-action: none;
+    }
+    .nav-inner { display: flex; width: 100%; max-width: 540px; }
+    .nav-item {
+      position: relative;
+      flex: 1 1 0;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      padding: 12px 0 16px;
+      border: 0;
+      background: none;
+      color: var(--md-sys-color-on-surface-variant);
+      font: inherit;
+      cursor: pointer;
+      outline: none;
+      border-radius: 16px;
+      --md-focus-ring-shape: 16px;
+    }
+    .pill {
+      position: relative;
+      width: 64px;
+      height: 32px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      --md-ripple-hover-color: var(--md-sys-color-on-surface);
+      --md-ripple-pressed-color: var(--md-sys-color-on-surface);
+    }
+    .pill::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 16px;
+      background: var(--md-sys-color-primary-container);
+      transform: scaleX(0);
+      opacity: 0;
+      transition: transform 300ms var(--md-sys-motion-easing-emphasized), opacity 150ms linear;
+    }
+    .pill md-icon { position: relative; }
+    .nav-item.active { color: var(--md-sys-color-on-surface); }
+    .nav-item.active .pill::before { transform: scaleX(1); opacity: 1; }
+    .nav-item.active .pill md-icon { color: var(--md-sys-color-on-primary-container); font-variation-settings: 'FILL' 1; }
+    .nav-item.active .lbl { font-weight: 700; }
+
+    /* MD3 Modal (Hikaye Detayı) */
+    md-dialog {
+      --md-dialog-container-color: var(--md-sys-color-surface-container-high);
+      max-width: 480px;
+    }
+    .dialog-content { display: flex; flex-direction: column; gap: 12px; }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { animation: none !important; transition: none !important; }
+      .js .wrap > .rise, .js .stagger > * { opacity: 1; transform: none; }
+    }
+    @media (max-height: 700px) {
+      #s0 .wrap { gap: 8px; }
+      .shot img { height: min(36dvh, 280px); }
+    }
+
+    /* Geniş ekran: Navigation Rail */
+    @media (min-width: 840px), (orientation: landscape) and (max-height: 500px) {
+      :root {
+        --nav-h: 0px;
+        --rail-w: calc(80px + env(safe-area-inset-left));
+      }
+      .nav {
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: auto;
+        width: var(--rail-w);
+        height: auto;
+        padding: 0 0 0 env(safe-area-inset-left);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: var(--md-sys-color-surface);
+        box-shadow: 1px 0 0 color-mix(in srgb, var(--md-sys-color-outline-variant) 55%, transparent);
+      }
+      .nav-inner {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        width: 80px;
+        max-width: none;
+      }
+      .nav-item { flex: none; width: 80px; padding: 6px 0; gap: 4px; }
+      .pill { width: 56px; }
+    }
+
+    /* 2 Kolon Masaüstü */
+    @media (min-width: 840px), (orientation: landscape) and (max-height: 500px) and (min-width: 640px) {
+      .wrap { max-width: 880px; --pad: 32px; }
+      .wrap.grid2 {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px 20px;
+        align-content: center;
+        align-items: start;
+      }
+      .wrap.grid2 > .span-all { grid-column: 1 / -1; }
+      .timeline { max-width: 680px; }
+    }
+  </style>
+</head>
+<body>
+
+<main id="scroller">
+
+  <!-- 1 · Merhaba -->
+  <section class="page" id="s0" aria-label="Merhaba">
+    <div class="hero-bg" aria-hidden="true">
+      <img src="assets/hero.jpg" alt="Duru Çakır" draggable="false">
+    </div>
+    <div class="wrap">
+      <div class="title-3d rise" style="--i:0">
+        <h1 class="tilt-text md-typescale-display-medium">Merhaba,<br>ben Duru.</h1>
+      </div>
+      <p class="md-typescale-body-large rise" style="--i:1">Kendi hâlinde yaşamayı seven ama içinde kocaman bir dünya taşıyan biriyim. Biraz duygusal, biraz inatçı, bolca hayalperest ve sanat tutkunu.</p>
+      
+      <!-- İlgi Alanı Çipleri: Yunuslar kaldırıldı, kişisel karakteri yansıtan etiketler eklendi -->
+      <md-chip-set class="rise" style="--i:2" aria-label="Özelliklerim">
+        <md-assist-chip label="Karakalem"><md-icon slot="icon">brush</md-icon></md-assist-chip>
+        <md-assist-chip label="Soyut Sanat"><md-icon slot="icon">palette</md-icon></md-assist-chip>
+        <md-assist-chip label="Empati & Güven"><md-icon slot="icon">favorite</md-icon></md-assist-chip>
+        <md-assist-chip label="Hayalperest"><md-icon slot="icon">auto_awesome</md-icon></md-assist-chip>
+        <md-assist-chip label="Kış Mevsimi"><md-icon slot="icon">ac_unit</md-icon></md-assist-chip>
+      </md-chip-set>
+      
+      <div class="hero-actions rise" style="--i:3">
+        <md-filled-button id="startBtn">
+          <span>Hikâyemi keşfet</span>
+          <md-icon slot="icon">arrow_downward</md-icon>
+        </md-filled-button>
+        <md-outlined-button class="secondary" id="dialogTrigger">
+          <span>Beni tanı</span>
+          <md-icon slot="icon">auto_stories</md-icon>
+        </md-outlined-button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 2 · Ben -->
+  <section class="page" id="s1" aria-label="Ben">
+    <div class="wrap grid2 stagger">
+      <h2 class="md-typescale-headline-large span-all" style="--i:0">Biraz benden</h2>
+      
+      <!-- MD3 Alıntı Kartı: Hikayeyi hissettiren dokunuş -->
+      <div class="card quote-surface span-all" style="--i:1">
+        <md-icon class="quote-icon">format_quote</md-icon>
+        <blockquote class="md-typescale-body-large">
+          “Küçük şeylerle mutlu olabilirim ama aynı küçük şeyleri saatlerce düşünüp kafama da takabilirim. Sanırım benim biraz böyle bir yanım var. :)”
+        </blockquote>
+      </div>
+
+      <div class="card list-card" style="--i:2">
+        <md-list>
+          <md-list-item>
+            <md-icon slot="start">location_on</md-icon>
+            <div slot="headline">Mersin</div>
+            <div slot="supporting-text">Dünyaya gözlerimi açtığım şehir</div>
+          </md-list-item>
+          <md-divider inset></md-divider>
+          <md-list-item>
+            <md-icon slot="start">cake</md-icon>
+            <div slot="headline">14 Şubat 2011</div>
+            <div slot="supporting-text" id="bday">Doğum günüm</div>
+          </md-list-item>
+          <md-divider inset></md-divider>
+          <md-list-item>
+            <md-icon slot="start">psychology</md-icon>
+            <div slot="headline">Mizacım</div>
+            <div slot="supporting-text">Enerjik, duygusal, düşünceli ve inatçı</div>
+          </md-list-item>
+        </md-list>
+      </div>
+
+      <div class="card story-card" style="--i:3">
+        <div class="card-head">
+          <md-icon class="ic">soup_kitchen</md-icon>
+          <span class="md-typescale-title-medium grow">O Unutulmaz Çorba Anısı</span>
+        </div>
+        <p class="md-typescale-body-medium">İlkokulda okula çorba götürüp bütün çantama döktüğüm günü hâlâ dün gibi hatırlıyorum. Aradan yıllar geçti ama o çorbanın hatırası tebessümle benimle kaldı.</p>
+        <p class="md-typescale-body-medium" style="margin-top: 8px; opacity: .88;">Kendimi bildim bileli biraz da sahipleniciyim; paylaşma konusunda çocukluğumdan beri pek başarılı olduğum söylenemez.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3 · Yolculuk -->
+  <section class="page" id="s2" aria-label="Yolculuk">
+    <div class="wrap stagger">
+      <h2 class="md-typescale-headline-large" style="--i:0">İzler & Hayallerim</h2>
+      <ol class="timeline" style="--i:1">
+        <li style="--i:1">
+          <div class="dot soft"><md-icon>auto_awesome</md-icon></div>
+          <div>
+            <h3 class="md-typescale-title-large">Mersin'den Başlayan Yol</h3>
+            <div class="md-typescale-label-large when">14 Şubat 2011</div>
+            <p class="md-typescale-body-medium">Hayata gözlerimi açtığım gün. Kendi hâlinde yaşamayı seven ama hayal gücünü durduramayan bir çocukluk.</p>
+          </div>
+        </li>
+        <li style="--i:2">
+          <div class="dot highlight"><md-icon>palette</md-icon></div>
+          <div>
+            <h3 class="md-typescale-title-large">Dış Dünyadan Uzaklaşma: Sanat</h3>
+            <div class="md-typescale-label-large when">Sığınak</div>
+            <p class="md-typescale-body-medium">Karakalem ve soyut çalışmalar yaparken hiçbir şeyi düşünmüyor, sadece çizgilerime odaklanıyorum. Sanat benim için sıradan bir hobi değil, bir terapi.</p>
+          </div>
+        </li>
+        <li style="--i:3">
+          <div class="dot soft"><md-icon>favorite</md-icon></div>
+          <div>
+            <h3 class="md-typescale-title-large">Hiç Tanışamadığım Abim</h3>
+            <div class="md-typescale-label-large when">İçimdeki Yer</div>
+            <p class="md-typescale-body-medium">Hayatımda hiç tanışma fırsatım olmayan bir abim var. Bazen tanışsaydık nasıl anlaşırdık, nasıl dertleşirdik diye düşünürüm.</p>
+            <div class="brother-box">
+              “Onunla yaşayabileceğim ama hiç yaşayamadığım o anılar, içimde hep çok ayrı bir yerde kalacak.”
+            </div>
+          </div>
+        </li>
+        <li style="--i:4">
+          <div class="dot highlight"><md-icon>explore</md-icon></div>
+          <div>
+            <h3 class="md-typescale-title-large">Gelecek ve Sergi Hayali</h3>
+            <div class="md-typescale-label-large when">Yarınlar</div>
+            <p class="md-typescale-body-medium">Farklı bir ülkede yaşamak, kendi sergimi açmak en büyük hayalim. Kimya okumak da var aklımda, resim de. Zamanın bana hangi kapıyı açacağını merakla bekliyorum.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 4 · Anılar -->
+  <section class="page" id="s3" aria-label="Anılar">
+    <div class="wrap">
+      <div class="stagger">
+        <h2 class="md-typescale-headline-large" style="--i:0">Elimde Kalan Anılar</h2>
+        <p class="md-typescale-body-large" style="--i:1; margin-top:6px; opacity:.85">Çocukluğumdan geriye kalan en samimi kareler.</p>
+      </div>
+      <div class="gallery" aria-label="Fotoğraflar">
+        <figure class="shot">
+          <img src="assets/1-gozluk.jpg" alt="Pembe gözlükleriyle küçük Duru" draggable="false" loading="lazy">
+          <figcaption class="md-typescale-body-medium">Pembe güneş gözlükleri ve küçük yaşta başlayan o kendinden emin duruş.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/2-sapka-muzip.jpg" alt="Muzipçe gülümseyen Duru" draggable="false" loading="lazy">
+          <figcaption class="md-typescale-body-medium">Çiçeklerin arkasında muzip ve neşeli anlar.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/3-sapka-gulumseme.jpg" alt="Kocaman gülen Duru" draggable="false" loading="lazy">
+          <figcaption class="md-typescale-body-medium">Kocaman bir gülümseme ve içten bir mutluluk.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/4-ev-salopet.jpg" alt="Evde kot salopetli Duru" draggable="false" loading="lazy">
+          <figcaption class="md-typescale-body-medium">Çift örgülü saçlar, kot tulum ve etrafı keşfetme hevesi.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/5-bahce-guller.jpg" alt="Gül bahçesinde Duru" draggable="false" loading="lazy">
+          <figcaption class="md-typescale-body-medium">Bahçe taşlarında mor güller ve minik pembe adımlar.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/6-oklava.jpg" alt="Oklava tutan Duru" draggable="false" loading="lazy">
+          <figcaption class="md-typescale-body-medium">Boyum kadar oklavayla mutfakta iş başında olduğum o gün.</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/7-kucakta.jpg" alt="Kucakta nostaljik Duru" draggable="false" loading="lazy">
+          <figcaption class="md-typescale-body-medium">Sevdiklerimin kucağında, mahallede geçen eski güzel günler.</figcaption>
+        </figure>
+      </div>
+      <div class="swipe-hint md-typescale-label-large"><md-icon>swipe</md-icon> <span>Yana kaydırarak anılara bak</span></div>
+    </div>
+  </section>
+
+  <!-- 5 · Dünyam & Ne Dinliyorum -->
+  <section class="page" id="s4" aria-label="Dünyam">
+    <div class="wrap grid2">
+      <h2 class="md-typescale-headline-large span-all">Dünyam & Şu an</h2>
+
+      <!-- Favoriler Kartı (Yunuslar buraya yerleştirildi) -->
+      <div class="card favs-card">
+        <div class="card-head">
+          <md-icon>interests</md-icon>
+          <span class="md-typescale-title-medium grow">Benim Dünyam</span>
+        </div>
+        <p class="md-typescale-body-medium" style="opacity: .9;">İnsanlarda en çok empatiye, anlayışa ve güvene değer veririm. Kalabalık ortamlar yerine kendi köşemde kalmayı tercih ederim.</p>
+        <div class="fav-tags">
+          <span class="fav-tag"><md-icon>tv</md-icon> Yargı & Mahkum</span>
+          <span class="fav-tag"><md-icon>pets</md-icon> Yunuslar</span>
+          <span class="fav-tag"><span class="dot-color dot-red"></span><span class="dot-color dot-green"></span> Kırmızı & Yeşil</span>
+          <span class="fav-tag"><md-icon>ac_unit</md-icon> Kış Mevsimi</span>
+          <span class="fav-tag"><md-icon>science</md-icon> Kimya & Resim</span>
+        </div>
+      </div>
+
+      <div class="card music">
+        <div class="card-head">
+          <md-icon>headphones</md-icon>
+          <span class="md-typescale-title-medium">Duru ne dinliyor?</span>
+        </div>
+        <div class="track">
+          <div class="art">
+            <img id="art" alt="" hidden draggable="false">
+            <md-icon id="artIcon">music_note</md-icon>
+          </div>
+          <div class="track-text">
+            <div id="trackName" class="md-typescale-title-medium ellipsis">Motive</div>
+            <div id="trackArtist" class="md-typescale-body-medium ellipsis" style="opacity:.8">Favori Sanatçı</div>
+            <div class="status md-typescale-label-medium">
+              <span class="eq" id="eq" hidden><i></i><i></i><i></i></span>
+              <span id="trackStatus">Kulağıma hoş gelen her şey</span>
+            </div>
+          </div>
+          <div class="play">
+            <md-circular-progress id="prevRing" value="0" max="1" aria-hidden="true"></md-circular-progress>
+            <md-filled-icon-button id="playBtn" disabled aria-label="Önizleme">
+              <md-icon id="playIcon">play_arrow</md-icon>
+            </md-filled-icon-button>
+          </div>
+        </div>
+        <md-linear-progress id="musicLoad" indeterminate></md-linear-progress>
+      </div>
+
+      <!-- İstediğin sade telif kısmı: Sadece isim -->
+      <p class="credit md-typescale-label-medium span-all">© <span id="year">2026</span> Duru Çakır</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- Alt MD3 Gezinme Menüsü -->
+<nav class="nav" aria-label="Bölümler">
+  <div class="nav-inner">
+    <button class="nav-item active" aria-label="Merhaba" aria-current="page">
+      <span class="pill"><md-ripple></md-ripple><md-icon>home</md-icon></span>
+      <span class="lbl md-typescale-label-medium">Merhaba</span>
+      <md-focus-ring></md-focus-ring>
+    </button>
+    <button class="nav-item" aria-label="Ben">
+      <span class="pill"><md-ripple></md-ripple><md-icon>person</md-icon></span>
+      <span class="lbl md-typescale-label-medium">Ben</span>
+      <md-focus-ring></md-focus-ring>
+    </button>
+    <button class="nav-item" aria-label="Yolculuk">
+      <span class="pill"><md-ripple></md-ripple><md-icon>route</md-icon></span>
+      <span class="lbl md-typescale-label-medium">Hayallerim</span>
+      <md-focus-ring></md-focus-ring>
+    </button>
+    <button class="nav-item" aria-label="Anılar">
+      <span class="pill"><md-ripple></md-ripple><md-icon>photo_library</md-icon></span>
+      <span class="lbl md-typescale-label-medium">Anılar</span>
+      <md-focus-ring></md-focus-ring>
+    </button>
+    <button class="nav-item" aria-label="Dünyam">
+      <span class="pill"><md-ripple></md-ripple><md-icon>palette</md-icon></span>
+      <span class="lbl md-typescale-label-medium">Dünyam</span>
+      <md-focus-ring></md-focus-ring>
+    </button>
+  </div>
+</nav>
+
+<!-- MD3 Hikaye Diyaloğu / Modal -->
+<md-dialog id="storyModal">
+  <div slot="headline">Duru'nun Dünyası</div>
+  <form slot="content" id="form-id" method="dialog" class="dialog-content">
+    <p class="md-typescale-body-medium">
+      "Henüz kendimi tamamen tanıdığımı düşünmüyorum. Hâlâ öğreniyorum, değişiyorum, bazen aynı hataları yapıyorum ve kendimi keşfetmeye devam ediyorum."
+    </p>
+    <p class="md-typescale-body-medium" style="opacity: .85;">
+      Birine güvendiğimde kendimi kolayca açarım. Çok kalabalık ortamları sevmem ama sevdiğim insanlarla vakit geçirmek bana iyi gelir. Yine de en çok yalnız kalıp kendi iç sesimi dinlemeyi, resim yapmayı ve düşüncelere dalmayı severim.
+    </p>
+  </form>
+  <div slot="actions">
+    <md-text-button form="form-id" value="close">Kapat</md-text-button>
+  </div>
+</md-dialog>
+
+<script>
+(() => {
+  'use strict';
+
+  /* Seçim ve bağlam menüsü engeli */
+  ['contextmenu', 'selectstart', 'dragstart', 'copy', 'cut'].forEach(type =>
+    document.addEventListener(type, e => e.preventDefault())
+  );
+
+  const $ = id => document.getElementById(id);
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* Yaş ve Doğum Günü Sayacı (14 Şubat 2011) */
+  const BIRTH = { y: 2011, m: 1, d: 14 }; // 14 Şubat
+  function updateAge() {
+    const now = new Date();
+    let age = now.getFullYear() - BIRTH.y;
+    const had = now.getMonth() > BIRTH.m || (now.getMonth() === BIRTH.m && now.getDate() >= BIRTH.d);
+    if (!had) age--;
+
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    let next = new Date(now.getFullYear(), BIRTH.m, BIRTH.d);
+    if (next < today) next = new Date(now.getFullYear() + 1, BIRTH.m, BIRTH.d);
+    const days = Math.round((next - today) / 86400000);
+
+    $('bday').textContent = days === 0
+      ? `Bugün doğum günüm! 🎉 (${age} yaşıma girdim)`
+      : `${next.getFullYear() - BIRTH.y}. yaşıma ${days} gün kaldı (${age} yaşındayım)`;
+    $('year').textContent = now.getFullYear();
+  }
+  updateAge();
+
+  /* Bölümler ve Gezinme */
+  const scroller = $('scroller');
+  const sections = [...document.querySelectorAll('.page')];
+  const navItems = [...document.querySelectorAll('.nav-item')];
+  let navLock = false, lockTimer;
+
+  function setActive(i) {
+    navItems.forEach((b, j) => {
+      b.classList.toggle('active', i === j);
+      if (i === j) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current');
+    });
+  }
+  function goTo(i) {
+    navLock = true;
+    setActive(i);
+    clearTimeout(lockTimer);
+    sections[i].scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+    lockTimer = setTimeout(() => {
+      navLock = false;
+      setActive(computeActive());
+    }, reduceMotion ? 50 : 750);
+  }
+  navItems.forEach((b, i) => b.addEventListener('click', () => goTo(i)));
+  $('startBtn').addEventListener('click', () => goTo(1));
+
+  /* MD3 Dialog Açılışı */
+  $('dialogTrigger').addEventListener('click', () => {
+    $('storyModal').show();
+  });
+
+  function computeActive() {
+    if (scroller.scrollTop + scroller.clientHeight >= scroller.scrollHeight - 2) return sections.length - 1;
+    const y = scroller.scrollTop + scroller.clientHeight * 0.35;
+    let idx = 0;
+    sections.forEach((sec, i) => { if (sec.offsetTop <= y) idx = i; });
+    return idx;
+  }
+  let scrollRaf = 0;
+  scroller.addEventListener('scroll', () => {
+    if (navLock || scrollRaf) return;
+    scrollRaf = requestAnimationFrame(() => { scrollRaf = 0; setActive(computeActive()); });
+  }, { passive: true });
+
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.querySelectorAll('.stagger').forEach(el => el.classList.add('in'));
+      if (entry.target.classList.contains('stagger')) entry.target.classList.add('in');
+    });
+  }, { root: scroller, threshold: 0, rootMargin: '0px 0px -15% 0px' });
+  sections.forEach(sec => io.observe(sec));
+
+  /* 3D Başlık Eğimi */
+  const hero = $('s0');
+  if (!reduceMotion) {
+    let cx = 0, cy = 0, tx = 0, ty = 0, raf = 0;
+    const apply = () => {
+      cx += (tx - cx) * 0.12;
+      cy += (ty - cy) * 0.12;
+      hero.style.setProperty('--rx', cx.toFixed(2));
+      hero.style.setProperty('--ry', cy.toFixed(2));
+      raf = (Math.abs(tx - cx) > 0.02 || Math.abs(ty - cy) > 0.02) ? requestAnimationFrame(apply) : 0;
+    };
+    const aim = (rx, ry) => {
+      hero.classList.add('live');
+      tx = rx; ty = ry;
+      if (!raf) raf = requestAnimationFrame(apply);
+    };
+    hero.addEventListener('pointermove', e => {
+      if (e.pointerType === 'touch') return;
+      const r = hero.getBoundingClientRect();
+      aim(-((e.clientY - r.top) / r.height - 0.5) * 12, ((e.clientX - r.left) / r.width - 0.5) * 20);
+    });
+    window.addEventListener('deviceorientation', e => {
+      if (e.gamma == null || e.beta == null) return;
+      aim(Math.max(-8, Math.min(8, (e.beta - 55) * 0.25)), Math.max(-14, Math.min(14, e.gamma * 0.5)));
+    });
+  }
+
+  /* Last.fm Altyapısı (Kullanıcı adı bağlandığında anında çalışır) */
+  const LASTFM = { user: '', key: 'd86f4c4cfa034a289293c509e4248503' };
+
+  async function loadMusic() {
+    if (!LASTFM.user) {
+      $('musicLoad').hidden = true;
+      $('trackName').textContent = 'Motive';
+      $('trackArtist').textContent = 'En çok dinlenen sanatçı';
+      $('trackStatus').textContent = 'Kulağıma hoş gelen her şey';
+      return;
+    }
+    try {
+      const q = new URLSearchParams({
+        method: 'user.getrecenttracks', user: LASTFM.user, api_key: LASTFM.key, format: 'json', limit: '1'
+      });
+      const res = await fetch('https://ws.audioscrobbler.com/2.0/?' + q, { cache: 'no-store' });
+      const json = await res.json();
+      let t = json.recenttracks && json.recenttracks.track;
+      if (Array.isArray(t)) t = t[0];
+      if (t) {
+        $('trackName').textContent = t.name;
+        $('trackArtist').textContent = (t.artist && (t.artist['#text'] || t.artist.name)) || '';
+        const playing = !!(t['@attr'] && t['@attr'].nowplaying === 'true');
+        $('trackStatus').textContent = playing ? 'Şu an dinliyor' : 'Son dinlenen parça';
+        $('eq').hidden = !playing;
+      }
+    } catch (e) {
+      console.warn(e);
+    } finally {
+      $('musicLoad').hidden = true;
+    }
+  }
+  loadMusic();
+
+  /* Başlatma */
+  const start = () => document.body.classList.add('ready');
+  const loaded = Promise.all([customElements.whenDefined('md-ripple'), document.fonts.ready]);
+  const timeout = new Promise(r => setTimeout(r, 2200));
+  Promise.race([loaded, timeout]).then(async () => {
+    if (!customElements.get('md-ripple')) {
+      try { await import('https://esm.sh/@material/web@2.3.0/all.js'); } catch (e) {}
+    }
+    start();
+  });
+})();
+</script>
+</body>
+</html>
